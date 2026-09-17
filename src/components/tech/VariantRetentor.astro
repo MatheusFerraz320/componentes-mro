@@ -1,0 +1,82 @@
+---
+import BaseFrame from "./BaseFrame.astro";
+
+interface Props {
+  class?: string;
+}
+
+const uid = "retentor";
+const g = `${uid}-`;
+const { class: className } = Astro.props;
+---
+
+<BaseFrame uid={uid} label="RETENTOR RADIAL" class={className}>
+  <g stroke="#002147" stroke-opacity="0.55" stroke-width="1.5">
+    <circle cx="160" cy="128" r="74" fill={`url(#${g}steel)`} />
+    <circle cx="160" cy="128" r="58" fill="none" />
+    <circle cx="160" cy="128" r="50" fill={`url(#${g}rubber)`} />
+    <circle cx="160" cy="128" r="34" fill="#dfe6ef" />
+    <circle
+      cx="160"
+      cy="128"
+      r="34"
+      fill="none"
+      stroke={`url(#${g}steel2)`}
+      stroke-width="5"
+    />
+
+    <circle
+      cx="160"
+      cy="128"
+      r="58"
+      fill="none"
+      stroke="#ff6b00"
+      stroke-opacity="0.55"
+      stroke-width="1"
+      stroke-dasharray="2 5"
+    />
+
+    {[45, 135, 225, 315].map((a) => {
+      const r = (a * Math.PI) / 180;
+      return (
+        <line
+          x1={160 + 68 * Math.cos(r)}
+          y1={128 + 68 * Math.sin(r)}
+          x2={160 + 74 * Math.cos(r)}
+          y2={128 + 74 * Math.sin(r)}
+          stroke="#002147"
+          stroke-opacity="0.4"
+        />
+      );
+    })}
+
+    <path
+      d="M160 52 a76 76 0 0 0 -72 54 l0 0 a52 52 0 0 1 52 -66 z"
+      fill="#ff6b00"
+      opacity="0.9"
+      stroke="#002147"
+      stroke-opacity="0.35"
+    />
+  </g>
+
+  <line
+    x1="64"
+    y1="224"
+    x2="256"
+    y2="224"
+    stroke="#ff6b00"
+    stroke-width="1"
+    marker-start={`url(#${g}arr)`}
+    marker-end={`url(#${g}arr)`}
+  />
+  <text
+    x="160"
+    y="218"
+    text-anchor="middle"
+    font-family="JetBrains Mono, monospace"
+    font-size="7"
+    fill="#ff6b00"
+  >
+    Ø EXT · Ø INT
+  </text>
+</BaseFrame>

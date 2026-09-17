@@ -1,20 +1,15 @@
 ---
 interface Props {
-  uid: string;
-  label: string;
-  class?: string;
+  uid: string
+  label: string
+  class?: string
 }
 
-const { uid, label, class: className = "h-auto w-full" } = Astro.props;
-const g = `${uid}-`;
+const { uid, label, class: className = 'h-auto w-full' } = Astro.props
+const g = `${uid}-`
 ---
 
-<svg
-  class={className}
-  viewBox="0 0 320 240"
-  role="img"
-  aria-label={`Ilustração técnica ${label}`}
->
+<svg class={className} viewBox="0 0 320 240" role="img" aria-label={`Ilustração técnica ${label}`}>
   <defs>
     <linearGradient id={`${g}bg`} x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#f4f7fb" />
@@ -53,12 +48,12 @@ const g = `${uid}-`;
 
   <g stroke="#002147" stroke-opacity="0.05">
     {Array.from({ length: 11 }, (_, i) => (i + 1) * 20).map((y) => {
-      return <line x1="0" y1={y} x2="320" y2={y} />;
+      return <line x1="0" y1={y} x2="320" y2={y} />
     })}
   </g>
   <g stroke="#002147" stroke-opacity="0.05">
     {Array.from({ length: 15 }, (_, i) => (i + 1) * 20).map((x) => {
-      return <line x1={x} y1="0" x2={x} y2="240" />;
+      return <line x1={x} y1="0" x2={x} y2="240" />
     })}
   </g>
 
@@ -104,12 +99,7 @@ const g = `${uid}-`;
   />
 
   <path d="M9 22 V9 H22" fill="none" stroke="#ff6b00" stroke-width="1.5" />
-  <path
-    d="M311 218 V231 H298"
-    fill="none"
-    stroke="#ff6b00"
-    stroke-width="1.5"
-  />
+  <path d="M311 218 V231 H298" fill="none" stroke="#ff6b00" stroke-width="1.5" />
 
   <text
     x="14"

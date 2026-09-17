@@ -1,0 +1,72 @@
+---
+import Icon from './Icon.astro'
+import Eyebrow from './Eyebrow.astro'
+import Field from './Field.astro'
+import Button from './Button.astro'
+import { form, site } from '../data/site'
+
+const contacts = [
+  { icon: 'phone', label: site.phone },
+  { icon: 'whatsapp', label: site.whatsapp },
+  { icon: 'mail', label: site.email },
+  { icon: 'clock', label: site.hours },
+] as const
+---
+
+<section id="orcamento" class="bg-neutral-light py-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid gap-px overflow-hidden border border-neutral-gray-200 bg-neutral-gray-200 lg:grid-cols-[340px_1fr]">
+      <div class="navy-premium flex flex-col justify-between p-9 lg:p-10">
+        <div>
+          <Eyebrow tone="light">{form.kicker}</Eyebrow>
+          <h2 class="mt-4 font-display text-2xl font-semibold uppercase leading-tight text-neutral-light">
+            {form.title}
+          </h2>
+          <p class="mt-4 font-sans text-sm leading-relaxed text-neutral-light/65">{form.intro}</p>
+        </div>
+
+        <ul class="mt-10 flex flex-col gap-4 border-t border-neutral-light/15 pt-8">
+          {form.steps.map((step, i) => (
+            <li class="flex items-center gap-3 font-sans text-sm text-neutral-light/80">
+              <span class="font-mono text-xs font-bold text-accent-orange">0{i + 1}</span>
+              {step}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-neutral-light p-9 lg:p-10">
+        <form class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
+          {form.fields.map((field) => (
+            <Field
+              label={field.label}
+              name={field.name}
+              type={field.type}
+              required={field.required}
+              placeholder={field.placeholder}
+              options={field.options}
+              span={field.span}
+            />
+          ))}
+
+          <div class="flex flex-col gap-3 sm:col-span-2">
+            <Button type="submit" variant="primary" class="w-full sm:w-auto">
+              {form.cta}
+            </Button>
+            <p class="font-mono text-[11px] uppercase tracking-[0.08em] text-ink-soft">
+              {form.note}
+            </p>
+            <p class="flex flex-wrap gap-x-5 gap-y-1 font-sans text-xs text-ink-soft">
+              {contacts.map((contact) => (
+                <span class="flex items-center gap-1.5">
+                  <Icon name={contact.icon} class="size-3.5 shrink-0 text-accent-orange" />
+                  {contact.label}
+                </span>
+              ))}
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

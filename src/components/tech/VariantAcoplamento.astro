@@ -1,13 +1,13 @@
 ---
-import BaseFrame from "./BaseFrame.astro";
+import BaseFrame from './BaseFrame.astro'
 
 interface Props {
-  class?: string;
+  class?: string
 }
 
-const uid = "acoplamento";
-const g = `${uid}-`;
-const { class: className } = Astro.props;
+const uid = 'acoplamento'
+const g = `${uid}-`
+const { class: className } = Astro.props
 ---
 
 <BaseFrame uid={uid} label="ACOPLAMENTO ELÁSTICO" class={className}>

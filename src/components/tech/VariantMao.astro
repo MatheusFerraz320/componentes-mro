@@ -1,13 +1,13 @@
 ---
-import BaseFrame from "./BaseFrame.astro";
+import BaseFrame from './BaseFrame.astro'
 
 interface Props {
-  class?: string;
+  class?: string
 }
 
-const uid = "mao";
-const g = `${uid}-`;
-const { class: className } = Astro.props;
+const uid = 'mao'
+const g = `${uid}-`
+const { class: className } = Astro.props
 ---
 
 <BaseFrame uid={uid} label="COMPONENTE EM APLICAÇÃO" class={className}>
@@ -47,14 +47,7 @@ const { class: className } = Astro.props;
     />
 
     <circle cx="150" cy="150" r="24" fill={`url(#${g}steel)`} />
-    <circle
-      cx="150"
-      cy="150"
-      r="24"
-      fill="none"
-      stroke={`url(#${g}steel2)`}
-      stroke-width="4"
-    />
+    <circle cx="150" cy="150" r="24" fill="none" stroke={`url(#${g}steel2)`} stroke-width="4" />
     <circle cx="150" cy="150" r="12" fill={`url(#${g}rubber)`} />
     <circle cx="150" cy="150" r="6" fill="#dfe6ef" />
   </g>

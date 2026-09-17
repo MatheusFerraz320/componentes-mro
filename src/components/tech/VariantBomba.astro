@@ -1,13 +1,13 @@
 ---
-import BaseFrame from "./BaseFrame.astro";
+import BaseFrame from './BaseFrame.astro'
 
 interface Props {
-  class?: string;
+  class?: string
 }
 
-const uid = "bomba";
-const g = `${uid}-`;
-const { class: className } = Astro.props;
+const uid = 'bomba'
+const g = `${uid}-`
+const { class: className } = Astro.props
 ---
 
 <BaseFrame uid={uid} label="BOMBA CENTRÍFUGA" class={className}>
@@ -18,14 +18,7 @@ const { class: className } = Astro.props;
     stroke-linecap="round"
     stroke-linejoin="round"
   >
-    <rect
-      x="52"
-      y="168"
-      width="216"
-      height="14"
-      rx="6"
-      fill={`url(#${g}steel2)`}
-    />
+    <rect x="52" y="168" width="216" height="14" rx="6" fill={`url(#${g}steel2)`} />
 
     <circle cx="124" cy="116" r="52" fill={`url(#${g}steel)`} />
     <circle cx="124" cy="116" r="38" fill="none" opacity="0.55" />
@@ -49,27 +42,13 @@ const { class: className } = Astro.props;
       d="M176 82 h14 v16 h42 a8 8 0 0 1 8 8 v12 a8 8 0 0 1-8 8 h-56 v-44 z"
       fill={`url(#${g}steel2)`}
     />
-    <rect
-      x="232"
-      y="86"
-      width="8"
-      height="26"
-      rx="2"
-      fill={`url(#${g}steel)`}
-    />
+    <rect x="232" y="86" width="8" height="26" rx="2" fill={`url(#${g}steel)`} />
     <circle cx="190" cy="90" r="6" fill={`url(#${g}steel2)`} />
     {[0, 1, 2, 3].map((i) => (
       <circle cx={238 + i * 5} cy="99" r="1.6" fill="#dfe6ef" />
     ))}
 
-    <rect
-      x="74"
-      y="84"
-      width="10"
-      height="26"
-      rx="3"
-      fill={`url(#${g}steel2)`}
-    />
+    <rect x="74" y="84" width="10" height="26" rx="3" fill={`url(#${g}steel2)`} />
     <line
       x1="70"
       y1="96"

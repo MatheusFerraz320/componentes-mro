@@ -1,13 +1,13 @@
 ---
-import BaseFrame from "./BaseFrame.astro";
+import BaseFrame from './BaseFrame.astro'
 
 interface Props {
-  class?: string;
+  class?: string
 }
 
-const uid = "motor";
-const g = `${uid}-`;
-const { class: className } = Astro.props;
+const uid = 'motor'
+const g = `${uid}-`
+const { class: className } = Astro.props
 ---
 
 <BaseFrame uid={uid} label="MOTOR ELÉTRICO" class={className}>
@@ -18,14 +18,7 @@ const { class: className } = Astro.props;
     stroke-linecap="round"
     stroke-linejoin="round"
   >
-    <rect
-      x="118"
-      y="66"
-      width="132"
-      height="60"
-      rx="10"
-      fill={`url(#${g}steel2)`}
-    />
+    <rect x="118" y="66" width="132" height="60" rx="10" fill={`url(#${g}steel2)`} />
     <path d="M118 66 L250 66 h8 v60 h-140 z" fill={`url(#${g}steel2)`} />
     {[0, 1, 2, 3, 4].map((i) => (
       <line
@@ -40,52 +33,19 @@ const { class: className } = Astro.props;
 
     <circle cx="102" cy="96" r="36" fill={`url(#${g}steel)`} />
     <circle cx="102" cy="96" r="14" fill="#dfe6ef" />
-    <circle
-      cx="102"
-      cy="96"
-      r="14"
-      fill="none"
-      stroke={`url(#${g}steel2)`}
-      stroke-width="4"
-    />
+    <circle cx="102" cy="96" r="14" fill="none" stroke={`url(#${g}steel2)`} stroke-width="4" />
     {[45, 135, 225, 315].map((a) => {
-      const r = (a * Math.PI) / 180;
+      const r = (a * Math.PI) / 180
       return (
-        <circle
-          cx={102 + 27 * Math.cos(r)}
-          cy={96 + 27 * Math.sin(r)}
-          r="3.5"
-          fill="#dfe6ef"
-        />
-      );
+        <circle cx={102 + 27 * Math.cos(r)} cy={96 + 27 * Math.sin(r)} r="3.5" fill="#dfe6ef" />
+      )
     })}
 
-    <rect
-      x="246"
-      y="88"
-      width="42"
-      height="16"
-      rx="4"
-      fill={`url(#${g}steel2)`}
-    />
+    <rect x="246" y="88" width="42" height="16" rx="4" fill={`url(#${g}steel2)`} />
     <rect x="278" y="90" width="8" height="12" fill="#dfe6ef" />
 
-    <rect
-      x="108"
-      y="126"
-      width="150"
-      height="12"
-      rx="5"
-      fill={`url(#${g}steel)`}
-    />
-    <rect
-      x="70"
-      y="96"
-      width="6"
-      height="42"
-      rx="3"
-      fill={`url(#${g}steel2)`}
-    />
+    <rect x="108" y="126" width="150" height="12" rx="5" fill={`url(#${g}steel)`} />
+    <rect x="70" y="96" width="6" height="42" rx="3" fill={`url(#${g}steel2)`} />
   </g>
 
   <text

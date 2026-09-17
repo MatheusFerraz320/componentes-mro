@@ -1,13 +1,13 @@
 ---
-import BaseFrame from "./BaseFrame.astro";
+import BaseFrame from './BaseFrame.astro'
 
 interface Props {
-  class?: string;
+  class?: string
 }
 
-const uid = "retentor";
-const g = `${uid}-`;
-const { class: className } = Astro.props;
+const uid = 'retentor'
+const g = `${uid}-`
+const { class: className } = Astro.props
 ---
 
 <BaseFrame uid={uid} label="RETENTOR RADIAL" class={className}>
@@ -16,14 +16,7 @@ const { class: className } = Astro.props;
     <circle cx="160" cy="128" r="58" fill="none" />
     <circle cx="160" cy="128" r="50" fill={`url(#${g}rubber)`} />
     <circle cx="160" cy="128" r="34" fill="#dfe6ef" />
-    <circle
-      cx="160"
-      cy="128"
-      r="34"
-      fill="none"
-      stroke={`url(#${g}steel2)`}
-      stroke-width="5"
-    />
+    <circle cx="160" cy="128" r="34" fill="none" stroke={`url(#${g}steel2)`} stroke-width="5" />
 
     <circle
       cx="160"
@@ -37,7 +30,7 @@ const { class: className } = Astro.props;
     />
 
     {[45, 135, 225, 315].map((a) => {
-      const r = (a * Math.PI) / 180;
+      const r = (a * Math.PI) / 180
       return (
         <line
           x1={160 + 68 * Math.cos(r)}
@@ -47,7 +40,7 @@ const { class: className } = Astro.props;
           stroke="#002147"
           stroke-opacity="0.4"
         />
-      );
+      )
     })}
 
     <path

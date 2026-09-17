@@ -1,13 +1,13 @@
 ---
-import BaseFrame from "./BaseFrame.astro";
+import BaseFrame from './BaseFrame.astro'
 
 interface Props {
-  class?: string;
+  class?: string
 }
 
-const uid = "hero";
-const g = `${uid}-`;
-const { class: className } = Astro.props;
+const uid = 'hero'
+const g = `${uid}-`
+const { class: className } = Astro.props
 ---
 
 <BaseFrame uid={uid} label="CONJUNTO MRO" class={className}>
@@ -34,14 +34,7 @@ const { class: className } = Astro.props;
     </g>
 
     <g>
-      <rect
-        x="74"
-        y="180"
-        width="188"
-        height="14"
-        rx="4"
-        fill={`url(#${g}steel2)`}
-      />
+      <rect x="74" y="180" width="188" height="14" rx="4" fill={`url(#${g}steel2)`} />
       <path
         d="M96 96 h106 a10 10 0 0 1 10 10 v74 h-126 v-74 a10 10 0 0 1 10-10 z"
         fill={`url(#${g}steel)`}

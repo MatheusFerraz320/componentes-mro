@@ -1,13 +1,13 @@
 ---
-import BaseFrame from "./BaseFrame.astro";
+import BaseFrame from './BaseFrame.astro'
 
 interface Props {
-  class?: string;
+  class?: string
 }
 
-const uid = "britador";
-const g = `${uid}-`;
-const { class: className } = Astro.props;
+const uid = 'britador'
+const g = `${uid}-`
+const { class: className } = Astro.props
 ---
 
 <BaseFrame uid={uid} label="BRITADOR DE MANDÍBULAS" class={className}>
@@ -18,59 +18,28 @@ const { class: className } = Astro.props;
     stroke-linecap="round"
     stroke-linejoin="round"
   >
-    <rect
-      x="70"
-      y="128"
-      width="180"
-      height="46"
-      rx="8"
-      fill={`url(#${g}steel2)`}
-    />
-    <rect
-      x="60"
-      y="170"
-      width="200"
-      height="12"
-      rx="5"
-      fill={`url(#${g}steel)`}
-    />
+    <rect x="70" y="128" width="180" height="46" rx="8" fill={`url(#${g}steel2)`} />
+    <rect x="60" y="170" width="200" height="12" rx="5" fill={`url(#${g}steel)`} />
 
     <path d="M98 82 L146 82 L118 130 L94 130 z" fill={`url(#${g}steel2)`} />
 
-    <path
-      d="M162 96 L212 96 L236 130 L186 130 z"
-      fill={`url(#${g}steel)`}
-      opacity="0.5"
-    />
+    <path d="M162 96 L212 96 L236 130 L186 130 z" fill={`url(#${g}steel)`} opacity="0.5" />
 
     <circle cx="142" cy="150" r="34" fill={`url(#${g}steel)`} />
-    <circle
-      cx="142"
-      cy="150"
-      r="24"
-      fill="none"
-      stroke={`url(#${g}rubber)`}
-      stroke-width="5"
-    />
+    <circle cx="142" cy="150" r="24" fill="none" stroke={`url(#${g}rubber)`} stroke-width="5" />
     <circle cx="142" cy="150" r="7" fill="#dfe6ef" />
     {[30, 90, 150, 210, 270, 330].map((a) => {
-      const r = (a * Math.PI) / 180;
+      const r = (a * Math.PI) / 180
       return (
         <path
           d={`M${142 + 30 * Math.cos(r)} ${150 + 30 * Math.sin(r)} l${6 * Math.cos(r)} ${6 * Math.sin(r)}`}
           stroke="#ff6b00"
           stroke-width="2"
         />
-      );
+      )
     })}
 
-    <path
-      d="M92 88 V76 h30"
-      fill="none"
-      stroke="#ff6b00"
-      stroke-width="1"
-      stroke-dasharray="2 3"
-    />
+    <path d="M92 88 V76 h30" fill="none" stroke="#ff6b00" stroke-width="1" stroke-dasharray="2 3" />
   </g>
 
   <text

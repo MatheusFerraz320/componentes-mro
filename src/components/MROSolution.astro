@@ -1,6 +1,6 @@
 ---
-import { solution } from "../data/site";
-import Icon from "./Icon.astro";
+import { solution } from '../data/site'
+import Icon from './Icon.astro'
 ---
 
 <section id="solucao" class="scroll-mt-16 bg-neutral-gray-100 py-16 md:py-24">
@@ -9,36 +9,25 @@ import Icon from "./Icon.astro";
       <h2 class="mb-3 font-display text-3xl font-extrabold leading-tight text-primary-dark md:text-4xl">
         UMA SOLUÇÃO MAIS COMPLETA
       </h2>
-      <p class="mb-6 max-w-lg text-lg font-semibold text-ink-soft">
-        {solution.title}
-      </p>
-      <p class="mb-6 max-w-lg text-base leading-relaxed text-ink-soft">
-        {solution.text}
-      </p>
+      <p class="mb-6 max-w-lg text-lg font-semibold text-ink-soft">{solution.title}</p>
+      <p class="mb-6 max-w-lg text-base leading-relaxed text-ink-soft">{solution.text}</p>
       <div class="card-tech flex items-start gap-3 rounded border-l-2 border-accent-orange p-4">
-        <Icon
-          name="layers"
-          class="mt-0.5 h-5 w-5 shrink-0 text-accent-orange"
-        />
+        <Icon name="layers" class="mt-0.5 h-5 w-5 shrink-0 text-accent-orange" />
         <p class="text-sm leading-relaxed text-primary-dark/90">
-          Um único atendimento para consultar rolamentos e os componentes
-          complementares da aplicação.
+          Um único atendimento para consultar rolamentos e os componentes complementares da
+          aplicação.
         </p>
       </div>
     </div>
 
     <div class="rounded border border-dashed border-neutral-gray-200 bg-neutral-light/60 p-6 md:p-10">
-      <p class="kicker mb-6 text-center text-primary-dark/50">
-        Fluxo da aplicação
-      </p>
+      <p class="kicker mb-6 text-center text-primary-dark/50">Fluxo da aplicação</p>
       <ol class="flex flex-col items-center gap-2">
         {solution.steps.map((step, i) => (
           <Fragment>
             <li class="card-tech flex w-full max-w-xs items-center gap-3 rounded p-4 text-center">
               <span class="kicker text-accent-orange">0{i + 1}</span>
-              <span class="font-display font-bold tracking-wide text-primary-dark">
-                {step}
-              </span>
+              <span class="font-display font-bold tracking-wide text-primary-dark">{step}</span>
             </li>
             {i < solution.steps.length - 1 && (
               <li class="flex h-7 items-center" aria-hidden="true">

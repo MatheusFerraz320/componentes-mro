@@ -1,110 +1,113 @@
 ---
-import { nav, site } from "../data/site";
-import Icon from "./Icon.astro";
+import Button from './Button.astro'
+import Icon from './Icon.astro'
+
+const productLinks = [
+  { label: 'Mancais', href: '#produtos' },
+  { label: 'Acoplamentos', href: '#produtos' },
+  { label: 'Retentores e Vedações', href: '#produtos' },
+  { label: 'Buchas e Acessórios', href: '#produtos' },
+]
+
+const navLinks = [
+  { label: 'Aplicações', href: '#aplicacoes' },
+  { label: 'Solução', href: '#solucao' },
+  { label: 'Segmentos', href: '#segmentos' },
+  { label: 'Diferenciais', href: '#diferenciais' },
+]
 ---
 
-<header class="top-0 border-b border-neutral-gray-200 bg-neutral-light/95 backdrop-blur">
-  <div class="container-x flex min-h-16 items-center justify-between gap-4 py-3 md:min-h-20">
-    <a
-      href="/"
-      class="flex shrink-0 items-center gap-3"
-      aria-label={site.brand}
-    >
+<header class="sticky top-0 z-50 border-b border-neutral-gray-200 bg-neutral-light/95 backdrop-blur-sm">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-3 lg:px-10">
+    <a href="/" class="flex shrink-0 items-center">
       <img
-        src="/logo.jpeg"
-        alt={`Logotipo ${site.brand}`}
-        class="h-30 w-auto"
-        width={1024}
-        height={853}
+        src="/LOGO.png"
+        alt="Pioneira Rolamentos"
+        class="h-20 w-auto"
+        width="1024"
+        height="853"
       />
     </a>
 
-    <nav
-      class="hidden items-center gap-7 lg:flex"
-      aria-label="Navegação principal"
-    >
-      {nav.map((item) => (
+    <nav class="hidden items-center gap-8 lg:flex">
+      <div class="group relative">
+        <button class="flex items-center gap-1.5 font-sans text-[15px] font-medium text-ink transition-colors hover:text-accent-orange">
+          Produtos
+          <Icon name="chevron-down" class="size-3.5" />
+        </button>
+
+        <div class="invisible absolute left-1/2 top-full w-64 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+          <ul class="border border-neutral-gray-200 bg-neutral-light py-2 shadow-[0_16px_32px_-16px_rgba(18,22,27,0.25)]">
+            {productLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="block px-5 py-2.5 font-sans text-sm text-ink transition-colors hover:bg-neutral-gray-100 hover:text-accent-orange"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {navLinks.map((link) => (
         <a
-          href={item.href}
-          class="font-display text-md font-semibold text-primary-dark/80 transition-colors hover:text-accent-orange"
+          href={link.href}
+          class="font-sans text-[15px] font-medium text-ink transition-colors hover:text-accent-orange"
         >
-          {item.label}
+          {link.label}
         </a>
       ))}
     </nav>
 
-    <div class="flex items-center gap-2 md:gap-3">
-      <a
-        href="#orcamento"
-        class="btn-primary hidden rounded px-4 py-2.5 sm:inline-flex"
-      >
-        Solicite Cotação
-      </a>
+    <div class="flex items-center gap-4">
       <button
-        id="nav-toggle"
         type="button"
-        class="rounded p-2 text-primary-dark/80 lg:hidden"
-        aria-label="Abrir menu"
-        aria-expanded="false"
-        aria-controls="mobile-nav"
+        aria-label="Buscar"
+        class="hidden text-ink transition-colors hover:text-accent-orange lg:block"
       >
-        <Icon id="nav-toggle-open" name="menu" class="h-6 w-6" />
-        <Icon id="nav-toggle-close" name="close" class="hidden h-6 w-6" />
+        <Icon name="search" class="size-5" />
       </button>
+
+      <Button href="#orcamento" variant="primary" class="hidden lg:inline-flex">
+        Solicite sua cotação
+      </Button>
+
+      <details class="group relative lg:hidden">
+        <summary class="flex size-10 cursor-pointer list-none items-center justify-center border border-neutral-gray-200 text-ink [&::-webkit-details-marker]:hidden">
+          <Icon name="menu" class="size-5 group-open:hidden" />
+          <Icon name="close" class="hidden size-5 group-open:block" />
+        </summary>
+
+        <div class="absolute right-0 top-full mt-3 w-72 border border-neutral-gray-200 bg-neutral-light p-5 shadow-[0_16px_32px_-16px_rgba(18,22,27,0.25)]">
+          <p class="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink-soft">
+            Produtos
+          </p>
+          <ul class="mt-2 mb-4 flex flex-col">
+            {productLinks.map((link) => (
+              <li>
+                <a href={link.href} class="block py-2 font-sans text-sm text-ink">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div class="flex flex-col border-t border-neutral-gray-200 pt-4">
+            {navLinks.map((link) => (
+              <a href={link.href} class="py-2 font-sans text-sm font-medium text-ink">
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <Button href="#orcamento" variant="primary" class="mt-4 w-full">
+            Solicite sua cotação
+          </Button>
+        </div>
+      </details>
     </div>
   </div>
-
-  <nav
-    id="mobile-nav"
-    class="hidden border-t border-neutral-gray-100 bg-neutral-light px-4 py-4 lg:hidden"
-    aria-label="Navegação mobile"
-  >
-    <ul class="flex flex-col gap-1">
-      {nav.map((item) => (
-        <li>
-          <a
-            href={item.href}
-            class="block rounded px-3 py-3 font-display text-base
-            font-semibold text-primary-dark transition-colors hover:bg-neutral-gray-100 hover:text-accent-orange"
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
-      <li class="mt-2">
-        <a href="#orcamento" class="btn-primary w-full rounded px-4 py-3">
-          Solicite Cotação
-        </a>
-      </li>
-    </ul>
-  </nav>
 </header>
-
-<script is:inline>
-  (function () {
-    const toggle = document.getElementById("nav-toggle");
-    const nav = document.getElementById("mobile-nav");
-    if (!toggle || !nav) return;
-    toggle.addEventListener("click", function () {
-      const open = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!open));
-      toggle.setAttribute("aria-label", open ? "Abrir menu" : "Fechar menu");
-      nav.classList.toggle("hidden", open);
-      document
-        .getElementById("nav-toggle-open")
-        ?.classList.toggle("hidden", !open);
-      document
-        .getElementById("nav-toggle-close")
-        ?.classList.toggle("hidden", open);
-    });
-    nav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Abrir menu");
-        nav.classList.add("hidden");
-        document.getElementById("nav-toggle-open")?.classList.remove("hidden");
-        document.getElementById("nav-toggle-close")?.classList.add("hidden");
-      });
-    });
-  })();
-</script>

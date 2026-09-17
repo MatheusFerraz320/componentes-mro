@@ -1,33 +1,28 @@
 ---
-import { assetPaths } from "../data/site";
-import VariantHero from "./tech/VariantHero.astro";
-import VariantMancal from "./tech/VariantMancal.astro";
-import VariantAcoplamento from "./tech/VariantAcoplamento.astro";
-import VariantRetentor from "./tech/VariantRetentor.astro";
-import VariantBucha from "./tech/VariantBucha.astro";
-import VariantMotor from "./tech/VariantMotor.astro";
-import VariantBomba from "./tech/VariantBomba.astro";
-import VariantRedutor from "./tech/VariantRedutor.astro";
-import VariantTransportador from "./tech/VariantTransportador.astro";
-import VariantBritador from "./tech/VariantBritador.astro";
-import VariantMaquina from "./tech/VariantMaquina.astro";
-import VariantMao from "./tech/VariantMao.astro";
+import { assetPaths } from '../data/site'
+import VariantHero from './tech/VariantHero.astro'
+import VariantMancal from './tech/VariantMancal.astro'
+import VariantAcoplamento from './tech/VariantAcoplamento.astro'
+import VariantRetentor from './tech/VariantRetentor.astro'
+import VariantBucha from './tech/VariantBucha.astro'
+import VariantMotor from './tech/VariantMotor.astro'
+import VariantBomba from './tech/VariantBomba.astro'
+import VariantRedutor from './tech/VariantRedutor.astro'
+import VariantTransportador from './tech/VariantTransportador.astro'
+import VariantBritador from './tech/VariantBritador.astro'
+import VariantMaquina from './tech/VariantMaquina.astro'
+import VariantMao from './tech/VariantMao.astro'
 
 interface Props {
-  variant: string;
-  class?: string;
-  alt?: string;
-  priority?: boolean;
+  variant: string
+  class?: string
+  alt?: string
+  priority?: boolean
 }
 
-const {
-  variant,
-  class: className = "h-auto w-full",
-  alt,
-  priority = false,
-} = Astro.props;
+const { variant, class: className = 'h-auto w-full', alt, priority = false } = Astro.props
 
-const path = assetPaths[variant] ?? null;
+const path = assetPaths[variant] ?? null
 ---
 
 {path ? (
@@ -35,31 +30,31 @@ const path = assetPaths[variant] ?? null;
     class={className}
     src={path}
     alt={alt ?? `Componente MRO — ${variant}`}
-    loading={priority ? "eager" : "lazy"}
+    loading={priority ? 'eager' : 'lazy'}
     width={640}
     height={480}
   />
-) : variant === "hero" ? (
+) : variant === 'hero' ? (
   <VariantHero class={className} />
-) : variant === "mancal" ? (
+) : variant === 'mancal' ? (
   <VariantMancal class={className} />
-) : variant === "acoplamento" ? (
+) : variant === 'acoplamento' ? (
   <VariantAcoplamento class={className} />
-) : variant === "retentor" ? (
+) : variant === 'retentor' ? (
   <VariantRetentor class={className} />
-) : variant === "bucha" ? (
+) : variant === 'bucha' ? (
   <VariantBucha class={className} />
-) : variant === "motor" ? (
+) : variant === 'motor' ? (
   <VariantMotor class={className} />
-) : variant === "bomba" ? (
+) : variant === 'bomba' ? (
   <VariantBomba class={className} />
-) : variant === "redutor" ? (
+) : variant === 'redutor' ? (
   <VariantRedutor class={className} />
-) : variant === "transportador" ? (
+) : variant === 'transportador' ? (
   <VariantTransportador class={className} />
-) : variant === "britador" ? (
+) : variant === 'britador' ? (
   <VariantBritador class={className} />
-) : variant === "mao" ? (
+) : variant === 'mao' ? (
   <VariantMao class={className} />
 ) : (
   <VariantMaquina class={className} />

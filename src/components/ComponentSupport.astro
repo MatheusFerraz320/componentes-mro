@@ -1,6 +1,6 @@
 ---
-import { support } from "../data/site";
-import Icon from "./Icon.astro";
+import { support } from '../data/site'
+import Icon from './Icon.astro'
 ---
 
 <section id="suporte" class="scroll-mt-16 bg-neutral-gray-100 py-16 md:py-24">
@@ -9,18 +9,14 @@ import Icon from "./Icon.astro";
       <h2 class="mb-3 font-display text-3xl font-extrabold leading-tight text-primary-dark md:text-4xl">
         IDENTIFICAÇÃO PELA APLICAÇÃO
       </h2>
-      <p class="mb-8 max-w-lg text-lg font-semibold text-ink-soft">
-        {support.title}
-      </p>
+      <p class="mb-8 max-w-lg text-lg font-semibold text-ink-soft">{support.title}</p>
       <p class="mb-8 max-w-lg text-base text-ink-soft">{support.text}</p>
 
       <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
         {support.items.map((item) => (
           <li class="card-tech flex flex-col items-center gap-2 rounded p-4 text-center">
             <Icon name={item.icon} class="h-10 w-10 text-accent-orange" />
-            <span class="text-sm font-semibold text-primary-dark">
-              {item.label}
-            </span>
+            <span class="text-sm font-semibold text-primary-dark">{item.label}</span>
           </li>
         ))}
       </ul>
@@ -36,8 +32,8 @@ import Icon from "./Icon.astro";
         Envie os dados do componente e receba o direcionamento
       </h3>
       <p class="mb-8 text-white/90">
-        Foto, referência, medidas ou a aplicação da máquina. Nosso time
-        identifica e responde com a especificação correta.
+        Foto, referência, medidas ou a aplicação da máquina. Nosso time identifica e responde com a
+        especificação correta.
       </p>
       <a
         href={support.cta.href}

@@ -1,0 +1,110 @@
+---
+import { nav, site } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<header class="top-0 border-b border-neutral-gray-200 bg-neutral-light/95 backdrop-blur">
+  <div class="container-x flex min-h-16 items-center justify-between gap-4 py-3 md:min-h-20">
+    <a
+      href="/"
+      class="flex shrink-0 items-center gap-3"
+      aria-label={site.brand}
+    >
+      <img
+        src="/logo.jpeg"
+        alt={`Logotipo ${site.brand}`}
+        class="h-30 w-auto"
+        width={1024}
+        height={853}
+      />
+    </a>
+
+    <nav
+      class="hidden items-center gap-7 lg:flex"
+      aria-label="Navegação principal"
+    >
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class="font-display text-md font-semibold text-primary-dark/80 transition-colors hover:text-accent-orange"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2 md:gap-3">
+      <a
+        href="#orcamento"
+        class="btn-primary hidden rounded px-4 py-2.5 sm:inline-flex"
+      >
+        Solicite Cotação
+      </a>
+      <button
+        id="nav-toggle"
+        type="button"
+        class="rounded p-2 text-primary-dark/80 lg:hidden"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <Icon id="nav-toggle-open" name="menu" class="h-6 w-6" />
+        <Icon id="nav-toggle-close" name="close" class="hidden h-6 w-6" />
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-nav"
+    class="hidden border-t border-neutral-gray-100 bg-neutral-light px-4 py-4 lg:hidden"
+    aria-label="Navegação mobile"
+  >
+    <ul class="flex flex-col gap-1">
+      {nav.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="block rounded px-3 py-3 font-display text-base
+            font-semibold text-primary-dark transition-colors hover:bg-neutral-gray-100 hover:text-accent-orange"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+      <li class="mt-2">
+        <a href="#orcamento" class="btn-primary w-full rounded px-4 py-3">
+          Solicite Cotação
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script is:inline>
+  (function () {
+    const toggle = document.getElementById("nav-toggle");
+    const nav = document.getElementById("mobile-nav");
+    if (!toggle || !nav) return;
+    toggle.addEventListener("click", function () {
+      const open = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!open));
+      toggle.setAttribute("aria-label", open ? "Abrir menu" : "Fechar menu");
+      nav.classList.toggle("hidden", open);
+      document
+        .getElementById("nav-toggle-open")
+        ?.classList.toggle("hidden", !open);
+      document
+        .getElementById("nav-toggle-close")
+        ?.classList.toggle("hidden", open);
+    });
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Abrir menu");
+        nav.classList.add("hidden");
+        document.getElementById("nav-toggle-open")?.classList.remove("hidden");
+        document.getElementById("nav-toggle-close")?.classList.add("hidden");
+      });
+    });
+  })();
+</script>

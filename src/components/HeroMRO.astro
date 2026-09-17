@@ -1,0 +1,67 @@
+---
+import { hero } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<section
+  id="inicio"
+  class="relative scroll-mt-16 overflow-hidden bg-primary-dark"
+  style="background-image: linear-gradient(90deg, #001830 0%, #002147 42%, rgba(0, 33, 71, 0) 62%, rgba(0, 33, 71, 0) 100%), url('/hero.jpeg'); background-size: cover, cover; background-repeat: no-repeat, no-repeat; background-position: left center, right center;"
+>
+  <div
+    class="pointer-events-none absolute inset-y-0 left-0 z-20 w-1.5 bg-accent-orange"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container-x relative flex min-h-[720px] flex-col justify-center py-20 md:py-28">
+    <div class="relative z-10 w-full lg:w-3/5 lg:pr-10 xl:pr-16">
+      <div class="rounded bg-primary-dark/75 p-6 backdrop-blur-sm md:p-10 lg:rounded-none lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+        <p class="kicker mb-4 text-neutral-light/70">{hero.kicker}</p>
+
+        <h1 class="mb-4 font-display text-3xl font-extrabold leading-tight text-neutral-light md:text-5xl">
+          COMPONENTES <span class="text-accent-orange">MRO</span> PARA
+          MANUTENÇÃO INDUSTRIAL
+        </h1>
+
+        <p class="mb-3 text-lg font-semibold text-neutral-light/90">
+          {hero.subtitle}
+        </p>
+        <p class="mb-6 text-base text-neutral-light/80">{hero.text}</p>
+
+        <ul class="mb-8 flex flex-col gap-3">
+          {hero.points.map((point) => (
+            <li class="flex items-start gap-3 text-neutral-light/90">
+              <Icon
+                name="check"
+                class="mt-0.5 h-5 w-5 shrink-0 text-accent-orange"
+              />
+              <span class="text-base">{point}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a
+            href={hero.ctaPrimary.href}
+            class="btn-primary rounded px-8 py-3 text-lg"
+          >
+            {hero.ctaPrimary.label}
+          </a>
+          <a
+            href={hero.ctaSecondary.href}
+            class="btn-secondary rounded px-8 py-3 text-lg"
+          >
+            {hero.ctaSecondary.label}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pointer-events-none absolute bottom-6 right-6 z-10 hidden rounded border border-neutral-light/20 px-4 py-3 backdrop-blur-sm sm:block">
+    <p class="kicker text-accent-orange">GA01 · GA04</p>
+    <p class="font-display text-sm font-semibold tracking-wide text-neutral-light/90">
+      MANCAIS · ACOPLAMENTOS · VEDAÇÕES
+    </p>
+  </div>
+</section>

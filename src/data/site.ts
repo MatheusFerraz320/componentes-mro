@@ -177,32 +177,32 @@ export const segments = [
 export const features = [
   {
     title: "Conhecimento Técnico",
-    sub: "IDENTIFICAÇÃO DE COMPONENTES",
-    desc: "Envie referência, medida, foto ou aplicação para auxiliar na identificação.",
+    sub: "IDENTIFICAÇÃO",
+    desc: "Identificamos por referência, medida, foto ou aplicação.",
     icon: "search",
   },
   {
     title: "Aplicação",
-    sub: "APOIO NA ESPECIFICAÇÃO",
-    desc: "Atendimento voltado à necessidade apresentada pela manutenção.",
+    sub: "ESPECIFICAÇÃO",
+    desc: "Atendimento focado na necessidade da sua manutenção.",
     icon: "target",
   },
   {
     title: "Portfólio",
-    sub: "COMPONENTES PARA MRO",
-    desc: "Rolamentos e diferentes componentes complementares para aplicações industriais.",
+    sub: "COMPONENTES MRO",
+    desc: "Rolamentos e itens complementares em um só lugar.",
     icon: "layers",
   },
   {
     title: "Atendimento",
-    sub: "FOCO EM EMPRESAS",
-    desc: "Relacionamento comercial direcionado a Manutenção, PCM, Engenharia e Compras.",
+    sub: "FOCO B2B",
+    desc: "Manutenção, PCM, Engenharia e Compras.",
     icon: "chat",
   },
   {
     title: "Região",
     sub: "CAMPINAS E REGIÃO",
-    desc: "Presença regional e atuação comercial voltada ao mercado industrial.",
+    desc: "Presença regional próxima do seu parque industrial.",
     icon: "pin",
   },
 ];

@@ -1,0 +1,26 @@
+---
+import { segments } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<section id="segmentos" class="scroll-mt-16 bg-neutral-light py-16 md:py-24">
+  <div class="container-x">
+    <p class="kicker mb-3 text-center text-accent-orange">05 // SEGMENTOS</p>
+    <h2 class="mb-10 text-center font-display text-2xl font-bold text-primary-dark md:text-3xl">
+      ATENDIMENTO A DIFERENTES SEGMENTOS INDUSTRIAIS
+    </h2>
+
+    <ul class="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-8">
+      {segments.map((segment) => (
+        <li class="flex flex-col items-center gap-3 text-center">
+          <span class="flex h-12 w-12 items-center justify-center rounded-full border border-neutral-gray-200 text-neutral-gray-200 transition-colors hover:border-accent-orange hover:text-accent-orange">
+            <Icon name={segment.icon} class="h-6 w-6" />
+          </span>
+          <span class="text-sm font-semibold leading-tight text-primary-dark/80">
+            {segment.label}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

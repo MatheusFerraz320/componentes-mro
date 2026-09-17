@@ -3,19 +3,42 @@ import { features } from "../data/site";
 import Icon from "./Icon.astro";
 ---
 
-<section id="diferenciais" class="scroll-mt-16 bg-neutral-light py-16 md:py-24">
-  <div class="container-x">
-    <p class="kicker mb-3 text-center text-accent-orange">
-      06 // POR QUE A PIONEIRA?
-    </p>
-    <h2 class="mb-10 text-center font-display text-3xl font-bold text-primary-dark">
-      APOIO PARA SUA NECESSIDADE DE MANUTENÇÃO
+<section
+  id="diferenciais"
+  class="relative scroll-mt-16 overflow-hidden bg-neutral-gray-100"
+>
+  <div class="container-x py-16 md:py-24">
+    <h2 class="mb-3 text-center font-display text-3xl font-extrabold leading-tight text-primary-dark md:text-4xl">
+      POR QUE ESCOLHER A PIONEIRA?
     </h2>
+    <p class="mb-4 text-center text-base font-semibold text-ink-soft md:text-lg">
+      APOIO PARA SUA NECESSIDADE DE MANUTENÇÃO
+    </p>
+    <div
+      class="mx-auto mb-12 h-1 w-20 bg-accent-orange"
+      aria-hidden="true"
+    ></div>
 
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-5">
-      {features.map((feature) => (
-        <article class="card-tech flex flex-col rounded p-6">
-          <Icon name={feature.icon} class="mb-4 h-8 w-8 text-accent-orange" />
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-6">
+      {features.map((feature, i) => (
+        <article
+          class={`panel-tech card-tech relative flex flex-col rounded p-6 ${
+            i < 3
+              ? "md:col-span-1 lg:col-span-2"
+              : "md:col-span-2 lg:col-span-3"
+          }`}
+        >
+          <span
+            class="pointer-events-none absolute right-4 top-3 font-display text-4xl font-black leading-none text-primary-dark/10"
+            aria-hidden="true"
+          >
+            {String(i + 1).padStart(2, "0")}
+          </span>
+
+          <span class="mb-5 flex h-12 w-12 items-center justify-center rounded border border-accent-orange/40 text-accent-orange">
+            <Icon name={feature.icon} class="h-6 w-6" />
+          </span>
+
           <h3 class="mb-1 font-display text-lg font-bold text-primary-dark">
             {feature.title}
           </h3>

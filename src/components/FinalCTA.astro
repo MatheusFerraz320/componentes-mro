@@ -14,13 +14,15 @@ import { finalCta } from "../data/site";
 
   <div class="container-x relative flex min-h-[520px] flex-col justify-center py-16 md:py-24">
     <div class="relative z-10 flex w-full flex-col items-center justify-center p-6 text-center md:p-10 lg:w-3/5">
-      <p class="kicker mb-4 text-neutral-light/70">{finalCta.kicker}</p>
-
       <h2 class="mb-4 font-display text-3xl font-extrabold leading-tight text-neutral-light md:text-5xl">
-        {finalCta.title}
+        {finalCta.kicker}
       </h2>
 
-      <p class="mb-8 text-lg text-neutral-light/80">{finalCta.text}</p>
+      <p class="mb-4 text-lg font-semibold text-neutral-light/90">
+        {finalCta.title}
+      </p>
+
+      <p class="mb-8 text-base text-neutral-light/80">{finalCta.text}</p>
 
       <a href={finalCta.cta.href} class="btn-primary rounded px-8 py-3 text-lg">
         {finalCta.cta.label}

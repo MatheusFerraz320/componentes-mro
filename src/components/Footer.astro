@@ -1,0 +1,93 @@
+---
+import { nav, site, socials } from "../data/site";
+import Icon from "./Icon.astro";
+
+const contactLinks = [
+  { icon: "phone", label: `Telefone ${site.phone}` },
+  { icon: "whatsapp", label: `WhatsApp ${site.whatsapp}` },
+  { icon: "mail", label: site.email },
+];
+---
+
+<footer class="border-t border-neutral-gray-200 bg-neutral-light">
+  <div class="container-x grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1.5fr]">
+    <div>
+      <a href="/" class="mb-4 inline-block">
+        <img
+          src="/logo.jpeg"
+          alt={`Logotipo ${site.brand}`}
+          class="h-10 w-auto"
+          width={1024}
+          height={853}
+        />
+      </a>
+      <p class="mb-4 max-w-xs text-sm leading-relaxed text-ink-soft">
+        Rolamentos e componentes MRO para manutenção e reposição industrial, com
+        identificação por referência, foto, medida ou aplicação.
+      </p>
+      <p class="flex items-center gap-2 text-sm font-semibold text-primary-dark">
+        <Icon name="pin" class="h-4 w-4 text-accent-orange" />
+        {site.region}
+      </p>
+    </div>
+
+    <div>
+      <h3 class="kicker mb-4 text-primary-dark/50">Navegação</h3>
+      <ul class="space-y-2.5">
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="text-sm text-ink-soft transition-colors hover:text-accent-orange"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="kicker mb-4 text-primary-dark/50">Contato</h3>
+      <ul class="space-y-2.5">
+        {contactLinks.map((item) => (
+          <li class="flex items-center gap-2.5 text-sm text-ink-soft">
+            <Icon
+              name={item.icon}
+              class="h-4 w-4 shrink-0 text-accent-orange"
+            />
+            {item.label}
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-6 flex items-center gap-3">
+        {socials.map((social) => (
+          <a
+            href={social.href}
+            aria-label={social.label}
+            class="flex h-10 w-10 items-center justify-center rounded border border-neutral-gray-200 text-primary-dark transition-colors hover:border-accent-orange hover:text-accent-orange"
+          >
+            <Icon name={social.icon} class="h-5 w-5" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-neutral-gray-100">
+    <div class="container-x flex flex-col items-center justify-between gap-2 py-5 text-center text-xs text-ink-soft/80 md:flex-row md:text-left">
+      <p>
+        © {new Date().getFullYear()} {site.brand} · CNPJ {site.cnpj} · Todos os
+        direitos reservados.
+      </p>
+      <p>Atendimento destinado a empresas e aplicações industriais.</p>
+      <p>
+        Desenvolvido por{" "}
+        <span class="font-semibold text-primary-dark">
+          B2 Marketing Industrial
+        </span>
+      </p>
+    </div>
+  </div>
+</footer>

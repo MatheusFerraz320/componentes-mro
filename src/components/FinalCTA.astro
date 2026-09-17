@@ -1,0 +1,30 @@
+---
+import { finalCta } from "../data/site";
+---
+
+<section
+  id="cta"
+  class="relative scroll-mt-16 overflow-hidden bg-primary-dark"
+  style="background-image: linear-gradient(90deg, #001830 0%, #002147 60%, rgba(0, 33, 71, 0) 74%, rgba(0, 33, 71, 0) 100%), url('/repairSection.jpeg'); background-size: cover, auto 100%; background-repeat: no-repeat, no-repeat; background-position: left center, right center;"
+>
+  <div
+    class="pointer-events-none absolute inset-x-0 top-0 z-20 h-1.5 bg-accent-orange"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container-x relative flex min-h-[520px] flex-col justify-center py-16 md:py-24">
+    <div class="relative z-10 flex w-full flex-col items-center justify-center p-6 text-center md:p-10 lg:w-3/5">
+      <p class="kicker mb-4 text-neutral-light/70">{finalCta.kicker}</p>
+
+      <h2 class="mb-4 font-display text-3xl font-extrabold leading-tight text-neutral-light md:text-5xl">
+        {finalCta.title}
+      </h2>
+
+      <p class="mb-8 text-lg text-neutral-light/80">{finalCta.text}</p>
+
+      <a href={finalCta.cta.href} class="btn-primary rounded px-8 py-3 text-lg">
+        {finalCta.cta.label}
+      </a>
+    </div>
+  </div>
+</section>

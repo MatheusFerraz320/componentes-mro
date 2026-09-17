@@ -1,0 +1,5 @@
+dist/
+.astro/
+.opencode/
+node_modules/
+package-lock.json
